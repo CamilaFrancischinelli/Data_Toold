@@ -1,0 +1,24 @@
+---
+title: "My Favorite Restaurants"
+author: "Camila Francischinelli"
+date: "6 jan 2020"
+output: html_document
+---
+
+Here are some of my favorite restaurants in London!
+
+
+```{r, echo = FALSE, eval = TRUE, warning = FALSE}
+suppressPackageStartupMessages(library(leaflet))
+
+food <- data.frame(
+     lat = c(51.514656, 51.516009, 51.522673, 51.504972, 51.510946, 51.505597, 51.537552),
+     lng = c(-0.125826, -0.127488, -0.158012, -0.018967, -0.122120, -0.090963, -0.106761))
+
+foodNames <- c("Hawksmoor Seven Dials", "Ippudo", "L'Antica Pizzeria da Michele", "Roka", "Honest Burgers",
+               "Borough Market", "The Pig and Butcher")
+food %>%
+     leaflet() %>%
+     addTiles() %>%
+     addMarkers(popup = foodNames)
+```
