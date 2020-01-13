@@ -1,0 +1,59 @@
+---
+title: "Earthquakes off Fiji"
+author: "Camila Fernandez"
+date: "10/01/2020"
+output: ioslides_presentation
+---
+
+## Earthquakes by magnitude
+
+```{r, echo=FALSE, message = FALSE, warning = FALSE}
+library(plotly)
+
+text <- paste("Mag:", quakes$mag)
+p <- plot_ly(
+        type = 'scattermapbox',
+        mode = "markers",
+        lon = quakes$long,
+        lat = quakes$lat,
+        text = text,
+        size = as.numeric(quakes$mag)/20,
+        marker = list(color = "red")) %>%
+        layout(title = "Earthquakes off Fiji",
+               geo = list ( scope = 'south asia' ),
+               mapbox = list(
+                       style = "stamen-terrain",
+                       center = list(lon = 180, lat= -20),
+                       zoom = 4))
+p
+
+```
+
+
+
+
+## R code
+
+```{r, echo=TRUE, message=FALSE, eval = FALSE}
+library(plotly)
+
+text <- paste("Mag:", quakes$mag)
+p <- plot_ly(
+        type = 'scattermapbox',
+        mode = "markers",
+        lon = quakes$long,
+        lat = quakes$lat,
+        text = text,
+        size = as.numeric(quakes$mag)/20,
+        marker = list(color = "red")) %>%
+        layout(title = "Earthquakes off Fiji",
+               geo = list ( scope = 'south asia' ),
+               mapbox = list(
+                       style = "stamen-terrain",
+                       center = list(lon = 180, lat= -20),
+                       zoom = 4))
+p
+
+```
+
+
