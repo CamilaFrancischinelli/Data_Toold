@@ -1,0 +1,42 @@
+---
+title: "Create your own Diamond Price Model"
+author: "Camila Fernandez"
+date: "22/01/2020"
+output: ioslides_presentation
+---
+
+## Diamond Prices - part 1
+
+Diamond prices are mainly a product of carat, cut, color and depth. Below you can see how prices vary according to carat, cut and color.
+
+```{r, echo=FALSE, message = FALSE, warning = FALSE}
+library(ggplot2)
+data(diamonds)
+
+ggplot(data = diamonds, aes(x = price, y = carat, color = color)) + geom_point() + facet_wrap(. ~ cut)
+
+
+```
+
+## Diamond Prices - part 2
+
+Diamond prices are mainly a product of carat, cut, color and depth. Below you can see how prices vary according to carat, cut and depth
+
+```{r, echo=FALSE, message = FALSE, warning = FALSE}
+library(ggplot2)
+data(diamonds)
+
+ggplot(data = diamonds, aes(x = price, y = carat, color = depth)) + geom_point() + facet_wrap(. ~ cut)
+
+
+```
+
+
+
+## The Diamond Price Model
+
+The application developed allows users to easily define which of the variables above they want to use to create their own Diamond Price Model, as well as predict the price of a diamond. It's very user friendly and allows users to quickly understand how the changes in the parameters aftects the price of the stones. 
+
+
+
+## Thank you!

@@ -25,8 +25,18 @@ shinyUI(fluidPage(
           ),
           
           mainPanel(
-               h3("Predicted Diamond Price:"),
-               textOutput("pred")
+               tabsetPanel(type = "tabs",
+                           tabPanel("Model", br(), 
+                                    h3("Predicted Diamond Price:"),
+                                    textOutput("pred")),
+                           tabPanel("Documentation", 
+                                    br(), 
+                                    h3("How to use this model:"),
+                                   "This application used the Diamonds database in R to create a model to calculate diamond prices.
+                                    Choose which variables you'd like to use: carat, cut, color and/or depth. You must choose at least one variable.
+                                    Add the parameters for the diamond that you'd like to predict the price. The result will change automatically."
+                                   )
+               )
           )
      )
 ))
